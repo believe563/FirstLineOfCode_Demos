@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(findViewById(R.id.right_layout)!=null) {
                     AnotherRightFragment fragment = new AnotherRightFragment();
                     replaceFragment(fragment);
+                }else{
+                    SecondActivity.actionStart(getApplicationContext());
                 }
 
                 break;
