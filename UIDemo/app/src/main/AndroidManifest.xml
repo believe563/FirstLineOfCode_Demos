@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TitleLayoutActivity">
+        <activity android:name="com.example.test.RecyclerView.RecyclerViewActivity"></activity>
+        <activity android:name="com.example.test.RecyclerView.StaggeredGridLayoutActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +20,8 @@
         <activity android:name=".ConstraintLayoutActivity" />
         <activity android:name=".ProgressBarActivity" />
         <activity android:name=".AlertDialogAndProgressDialogActivity" />
-        <activity android:name=".PercentActivity"></activity>
+        <activity android:name=".PercentActivity" />
+        <activity android:name=".TitleLayoutActivity" />
     </application>
 
 </manifest>
