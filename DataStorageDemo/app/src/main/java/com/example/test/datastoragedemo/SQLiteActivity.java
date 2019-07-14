@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.example.test.datastoragedemo.utils.MyDatabaseHelper;
 
 /**
- * demo3-SQLite数据库增删改查操作
+ * demo4-SQLite数据库增删改查操作
  */
 public class SQLiteActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -94,6 +94,7 @@ public class SQLiteActivity extends AppCompatActivity implements View.OnClickLis
                 dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
                 db=dbHelper.getWritableDatabase();
 
+//                删除满足条件的数据
                 db.delete("Book","id=?",new String[]{"2"});
                 break;
             case R.id.bt_query_data:
@@ -113,6 +114,9 @@ public class SQLiteActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    /**
+     * 直接用SQL语句操作表中数据
+     */
     private void straightOprations() {
 //        添加数据的方法
         db.execSQL("insert into Book(name,author,pages,price) values(?,?,?,?)", new String[]{"The Da Vinci Code", "Dan Brown", "454", "16.96"});
@@ -129,11 +133,13 @@ public class SQLiteActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     /**
+     * 查询表中的数据
      * 最短的参数有7个
      */
     private void queryValues() {
 //        查询Book表中的所有数据
-        Cursor cursor = db.query("Book", null, null, null, null, null, null);
+        Cursor cursor = db.query("Book", null, null, null,
+                null, null, null);
         if (cursor.moveToFirst()) {
             do {
 //                遍历Cursor对象，取出并打印
@@ -152,12 +158,14 @@ public class SQLiteActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+//    更新表中的数据
     private void updateValue() {
         ContentValues values = new ContentValues();
         values.put("price", 10.99);
         db.update("Book",values,"id=?",new String[]{"1"});
     }
 
+//    向表中插入数据
     private void insertValues() {
         ContentValues values = new ContentValues();
         values.put("name","First Lines Of Code");

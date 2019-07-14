@@ -41,6 +41,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+//        升级表时，首先要注销，再调用onCreate(),实例化本类时版本号改为比初始时大的数可调用本方法
         db.execSQL("drop table if exists Book");
         db.execSQL("drop table if exists Category");
         onCreate(db);

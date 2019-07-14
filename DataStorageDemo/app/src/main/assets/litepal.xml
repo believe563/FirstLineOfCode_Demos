@@ -4,6 +4,7 @@
     <version value="1"></version>
     <list>
         <mapping class="com.example.test.datastoragedemo.beans.Book"></mapping>
+        <mapping class="com.example.test.datastoragedemo.beans.Category"></mapping>
 
     </list>
 </litepal>
